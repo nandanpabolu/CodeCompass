@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "codecompass": {
+      "command": "python",
+      "args": ["/path/to/CodeCompass/src/mcp_server.py"],
+      "env": {
+        "REPO_ROOT": "/path/to/your/codebase",
+        "LOG_LEVEL": "INFO"
+      }
+    }
+  }
+}

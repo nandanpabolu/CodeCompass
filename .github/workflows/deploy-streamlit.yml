@@ -1,0 +1,19 @@
+name: Deploy to Streamlit Cloud
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Deploy to Streamlit Cloud
+      run: |
+        echo "Deployment triggered for commit ${{ github.sha }}"
+        echo "Streamlit Cloud will auto-deploy from main branch"
+        echo "Make sure to connect this repository to Streamlit Cloud"
+        echo "Repository URL: https://github.com/${{ github.repository }}"
