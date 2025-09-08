@@ -7,13 +7,17 @@ Web interface for the CodeCompass MCP server.
 
 import streamlit as st
 import asyncio
+import sys
 from pathlib import Path
 from typing import Dict, List, Any
 import json
 
-from .core.analyzer import CodeAnalyzer
-from .config.settings import Settings
-from .utils.safety import PathValidator
+# Add the src directory to the path for imports
+sys.path.append(str(Path(__file__).parent))
+
+from core.analyzer import CodeAnalyzer
+from config.settings import Settings
+from utils.safety import PathValidator
 
 # Page configuration
 st.set_page_config(

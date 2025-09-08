@@ -11,13 +11,16 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from mcp import Server
-from mcp.server import stdio
+from mcp.server import Server
+from mcp.server.stdio import stdio_server
 from pydantic import BaseModel, Field
 
-from .core.analyzer import CodeAnalyzer
-from .config.settings import Settings
-from .utils.safety import PathValidator
+# Add the src directory to the path for imports
+sys.path.append(str(Path(__file__).parent))
+
+from core.analyzer import CodeAnalyzer
+from config.settings import Settings
+from utils.safety import PathValidator
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -224,7 +227,7 @@ async def main():
         await initialize_server()
         
         # Run server
-        async with stdio.stdio_server() as (read_stream, write_stream):
+        async with stdio_server() as (read_stream, write_stream):
             await server.run(
                 read_stream,
                 write_stream,
