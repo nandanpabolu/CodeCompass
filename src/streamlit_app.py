@@ -249,11 +249,13 @@ def settings_page():
         # Search settings
         st.subheader("Search Settings")
         max_results = st.slider("Max Results", 10, 1000, st.session_state.settings.search.default_limit)
-        case_sensitive = st.checkbox("Case Sensitive", st.session_state.search.case_sensitive)
+        case_sensitive = st.checkbox("Case Sensitive", st.session_state.settings.search.case_sensitive)
         
         # Save settings
         if st.button("Save Settings"):
             st.success("Settings saved!")
+    else:
+        st.warning("Settings not loaded. Please refresh the page.")
     
     st.subheader("About CodeCompass")
     st.markdown("""
