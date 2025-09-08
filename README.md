@@ -40,8 +40,11 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 # Install dependencies
 pip install -r requirements.txt
 
+# Test the backend (optional)
+python test_backend.py
+
 # Run MCP Server
-python src/mcp_server.py
+python src/simple_mcp_server.py
 
 # Or run the web dashboard
 streamlit run src/streamlit_app.py
